@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using these metadata."
+type: software
+title: "Relativity leaves only the symmetric potentials integrable: a classification of homogeneous polynomial potentials for the additive relativistic Hamiltonian"
+abstract: "Unrefereed research candidate. For H = sqrt(1 + p1^2 + p2^2) + V(q1, q2) with V a nonzero real homogeneous polynomial of degree k >= 3, H has a second first integral, meromorphic on the natural complex phase space and independent of H, if and only if, after a rotation, V = c q1^k or (k even) V = c (q1^2 + q2^2)^(k/2). The result is new for k >= 6; for k = 3, 4, 5 Przybylska, Szuminski and Maciejewski (2023) reached it by another route. Complex-coefficient potentials with a nonisotropic linear factor and isotropic multiplicities different from k/2 are integrable only when they are a power of one nonisotropic linear form; in particular generic potentials are non-integrable, which proves the stated consequence of the 2023 conjecture. Isotropic monomials and the exact-half multiplicity case remain open."
+authors:
+  - name: "Anonymous"
+version: "0.1.0-candidate"
+date-released: "2026-11-25"
+doi: "10.5281/zenodo.24523290"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24523290"
+    description: "This version"
+  - type: doi
+    value: "10.5281/zenodo.24523289"
+    description: "All versions (concept DOI)"
+repository-code: "https://github.com/ipitchford/relativistic-homogeneous-potentials-classification"
+url: "https://evidencepress.org/releases/relativistic-homogeneous-potentials-classification/"
+license: CC0-1.0
+keywords:
+  - integrability
+  - relativistic Hamiltonian
+  - homogeneous potentials
+  - Morales-Ramis theory
+  - differential Galois theory
+  - Hamiltonian dynamics
+preferred-citation:
+  type: article
+  title: "Relativity leaves only the symmetric potentials integrable: a classification of homogeneous polynomial potentials for the additive relativistic Hamiltonian"
+  authors:
+    - name: "Anonymous"
+  year: 2026
+  doi: "10.5281/zenodo.24523290"
+  publisher:
+    name: "Zenodo"
+  notes: "Version 0.1.0-candidate; unrefereed"

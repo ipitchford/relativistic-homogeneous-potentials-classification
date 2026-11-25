@@ -1,0 +1,870 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.6cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks,pdftitle={Relativity leaves only the symmetric potentials integrable},pdfauthor={Anonymous}]{hyperref}
+
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{theoremA}{Theorem A}
+\newtheorem*{theoremB}{Theorem B}
+\newtheorem*{corollaryC}{Corollary C}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\dd}{\mathrm d}
+
+\title{Relativity leaves only the symmetric potentials integrable:\\
+a classification of homogeneous polynomial potentials\\
+for the additive relativistic Hamiltonian}
+\author{Anonymous\\[3pt]{\small DOI \href{https://doi.org/10.5281/zenodo.24523290}{10.5281/zenodo.24523290}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A particle in the plane moving under a potential $V$ with relativistic kinetic energy has the Hamiltonian
+$H=\sqrt{1+p_1^2+p_2^2}+V(q_1,q_2)$. Przybylska, Szumi\'nski and Maciejewski (2023) found that relativity destroys
+almost all of the integrable cases known for the classical Hamiltonian $\tfrac12(p_1^2+p_2^2)+V$, and they
+suggested that for homogeneous polynomial potentials only the one-coordinate and radial potentials survive.
+We prove this for every degree $k\ge3$. A nonzero real homogeneous polynomial potential of degree $k\ge3$ admits a
+second first integral, meromorphic on the natural complex phase space of $H$ and independent of $H$, if and only if,
+after a rotation, $V=c\,q_1^k$ or ($k$ even) $V=c\,(q_1^2+q_2^2)^{k/2}$; that is, if and only if $V$ is invariant
+under a translation or under all rotations. The same holds for complex-coefficient potentials with no isotropic
+linear factor; in particular every generic homogeneous polynomial potential is non-integrable, which proves the stated consequence of a conjecture in the 2023 paper. More generally, we classify complex potentials that have at least one nonisotropic linear factor and whose isotropic factors do not have multiplicity exactly $k/2$, and we name the two families that the method leaves undecided. The new ingredient is a
+rigidity theorem at a vanishing transverse Hessian eigenvalue: a first nonconstant transverse term in the potential
+produces two independent periods on a hyperelliptic phase curve, and these periods make a finite jet of the normal
+holonomy non-commutative, which the Morales--Ramis--Sim\'o theory forbids.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+This section explains the problem, what was known, what is new here, and how the paper is organised.
+
+\paragraph{The problem.}
+For the classical Hamiltonian $\tfrac12|p|^2+V(q)$ with $V$ homogeneous, the question ``for which potentials is the
+motion integrable?'' has been studied intensively with the tools of differential Galois theory (Morales--Ramis
+theory), and the classical answer is rich: besides the potentials that depend on one coordinate and the radial
+potentials, there are separable potentials such as $q_1^k+q_2^k$, potentials separable in parabolic coordinates,
+and several sporadic families. When the kinetic energy is replaced by its special-relativistic form, the
+Hamiltonian becomes
+\begin{equation}\label{eq:H}
+H=\sqrt{1+p_1^2+p_2^2}+V(q_1,q_2),
+\end{equation}
+which describes a particle of unit mass and unit speed of light in the weak-field regime
+\cite{PSM23}. Przybylska, Szumi\'nski and Maciejewski \cite{PSM23} discovered that this change is
+\emph{destructive}: integrability conditions become far more restrictive, Poincar\'e sections of formerly integrable
+potentials show chaos, and in all examples they examined only two kinds of polynomial potential remained integrable.
+Their abstract puts it as follows: it seems that the only integrable relativistic systems with such potentials are
+those depending only on one coordinate, or having a radial form. In their discussion they considered a general
+conjecture premature. This paper proves the statement for homogeneous polynomial potentials of every degree
+$k\ge3$.
+
+\paragraph{Why it matters.}
+Integrability is the dividing line between motions that can be described by conserved quantities and motions that
+can be chaotic. The relativistic Hamiltonian \eqref{eq:H} is the simplest model in which one can ask how special
+relativity interacts with integrability, and \cite{PSM23,SPM24,SP25} have built a programme around it, including
+curved-space versions. A complete classification turns the observation ``relativity destroys integrability'' into a
+theorem with a transparent physical meaning: the only survivors are the potentials with a continuous symmetry
+(translation invariance for $c\,q_1^k$, rotation invariance for $c\,|q|^k$), whose conserved momentum or angular
+momentum is not affected by the change of kinetic energy.
+
+\paragraph{What was known.}
+Przybylska, Szumi\'nski and Maciejewski \cite[Theorem~3]{PSM23} proved, for first integrals that are rational in
+$(q,p,u)$ with $u=\sqrt{1+|p|^2}$, that every non-trivial eigenvalue $\lambda$ of the scaled Hessian at a Darboux direction (the transverse eigenvalue, defined in Section~\ref{sec:setting}) must lie in an explicit sparse set of integers; for $k=3$ it begins
+$0,1,5,40,176,\dots$ (they present an outline of the proof, the details being long). Combining this with the known
+lists of classically integrable potentials, they concluded in \cite[Sec.~V]{PSM23} that among homogeneous
+polynomial potentials of degrees three, four and five only $q_1^3$, $q_1^4$, $(q_1^2+q_2^2)^2$ and $q_1^5$ are
+relativistically integrable, and they proved non-integrability of the families separable in Cartesian and in parabolic
+coordinates for all degrees. They also recalled the result of Maciejewski and Przybylska \cite[Corollary~2.1, Theorem~1.2]{MP05} that a generic potential of degree $k$ has $k$ Darboux directions whose eigenvalues satisfy $\sum_i 1/(\lambda_i-1)=-1$, and conjectured that this relation has essentially no admissible
+integer solutions, ``so in the relativistic model, all generic polynomial potentials are not integrable''
+\cite[Sec.~VI]{PSM23}. Szumi\'nski and Przybylska \cite[Sec.~3.1, eqs.~(31)--(34), and Theorem~3]{SP25} derived two special-energy
+hypergeometric reductions of the variational equations for a family of relativistic Hamiltonians that contains
+\eqref{eq:H}; we use the flat specialisation of these reductions. The paper \cite{SPM24} treats a different
+relativistic Hamiltonian, $\sqrt{(1+2V)(1+|p|^2)}$, and is not used here.
+
+On the classical side, the closest precedent is Combot's theorem \cite[Theorem~A]{Combot16} that a real-analytic planar potential, homogeneous of degree $-1$, is meromorphically integrable only if it is radial. His proof uses the same broad strategy as ours: choose a real direction where the angular potential is extremal, which forces a small eigenvalue \cite[Lemma~3.1]{Combot16}, and then prove rigidity at the small eigenvalues using higher variational equations \cite[Theorem~B, Lemma~4.5]{Combot16}. Theorem~A below is the analogous statement for positive-degree polynomial potentials with relativistic kinetic energy. Combot \cite[Sec.~4.3, Lemmas~6--7]{Combot13} also derived
+a determinant of periods from commuting monodromy. Higher variational equations at special eigenvalues were analysed
+systematically by Duval and Maciejewski \cite{DM15}. The tool that turns these computations into integrability
+obstructions is the theorem of Morales-Ruiz, Ramis and Sim\'o \cite{MRS07} on higher variational equations and
+holonomy. We do not claim this proof architecture or the period-determinant mechanism as new.
+
+\paragraph{What is new.}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Theorem A} (Section~\ref{sec:proofA}): the complete classification of real homogeneous polynomial
+potentials of every degree $k\ge3$, with meromorphic first integrals on the complex phase space; it is uniform in $k$,
+new for $k\ge6$, and gives a self-contained proof for $k=3,4,5$. Theorem~\ref{thm:local} shows that only
+integrability near two explicit complex phase curves is needed.
+\item \textbf{Theorem~\ref{thm:zero}}: \emph{zero-eigenvalue rigidity}. If a Darboux direction has transverse
+eigenvalue $0$, the potential must be a pure power of one coordinate. This has no classical counterpart in positive degree: classically $q_1^k+q_2^k$ has eigenvalue $0$ and is integrable. The proof shows why: if the first term of $V$ that depends on the transverse coordinate has order $m$, the relativistic kinetic term produces a period of $x^{2k-m}\,\dd x/\psi$ on the hyperelliptic curve $\psi^2=a^2x^{2k}-1$ (where $a$ is the value of $V$ at the unit direction), and this period is independent of the period of $\dd x/\psi$; in the classical analogue the power $x^{2k-m}$ becomes $x^{k-m}$, which for $m=k$ gives no new period.
+\item \textbf{Theorem B and Corollary C} (Section~\ref{sec:complex}): the classification for complex-coefficient potentials that have a nonisotropic linear factor and whose isotropic factors $q_1\pm iq_2$ do not occur with multiplicity exactly $k/2$, and in particular for all potentials with no isotropic factor. The proof combines the rigidity theorems with the Darboux-point residue relation of Maciejewski and Przybylska \cite[Theorem~2.3]{MP05}. This proves the statement that generic polynomial potentials are
+relativistically non-integrable \cite[Sec.~VI]{PSM23}, while the arithmetic question about integer solutions posed
+there remains open.
+\end{enumerate}
+The inputs Proposition~\ref{prop:spectral} (a necessary spectral restriction, weaker than
+\cite[Theorem~3]{PSM23} but proved in full and valid for meromorphic integrals) and Theorem~\ref{thm:one}
+(rigidity at eigenvalue one; the conclusion also follows from \cite[Proposition~1]{PSM23} combined with
+\cite[Theorem~1]{Combot13}) are included to make the argument self-contained.
+
+\paragraph{The idea of the proof in one paragraph.}
+Pick the real direction $d$ on the unit circle where $|V|$ is largest. Along the straight line through $d$ the
+equations of motion have explicit solutions, and the linearised motion transverse to the line is governed by a
+scalar eigenvalue $\lambda$. At the extremum $\lambda\le1$, and the hypergeometric reductions at energies $0$ and
+$1$, combined with Kimura's classification, force $\lambda\in\{0,1\}$. If $\lambda=0$, write the potential in
+coordinates aligned with $d$ and look at its first term that depends on the transverse coordinate. On the energy
+surface $H=0$ the straight-line orbit is the hyperelliptic curve $\psi^2=a^2x^{2k}-1$. Following nearby orbits once
+around a loop of this curve gives a map (the normal holonomy) whose linear part is a shear with coefficient
+$\oint \dd x/\psi$ and whose first nonlinear part has coefficient proportional to $\oint x^{2k-m}\,\dd x/\psi$.
+Two such maps commute only if these two periods are proportional for all loops, and a short degree argument shows
+they are not. Integrability would force the holonomy jets to commute (up to finite index), so the transverse term
+cannot exist. The case $\lambda=1$ is the same argument in polar coordinates.
+
+\paragraph{Roadmap.}
+Section~\ref{sec:setting} fixes the phase space, the meaning of integrability and the notation (Darboux directions,
+eigenvalues), and states the two external tools used. Section~\ref{sec:spectral} proves the spectral restriction.
+Sections~\ref{sec:zero} and~\ref{sec:one} prove the rigidity theorems at eigenvalues $0$ and $1$.
+Section~\ref{sec:proofA} assembles Theorem A and its local version. Section~\ref{sec:complex} treats complex
+coefficients. Section~\ref{sec:discussion} gives checks, the scope of the results and open problems.
+Appendix~\ref{app:kimura} states Kimura's theorem, and Appendix~\ref{app:code} describes the accompanying
+symbolic checks.
+
+\section{Setting, notation and tools}\label{sec:setting}
+
+This section defines the complex phase space and the notion of integrability used throughout, introduces Darboux
+directions and their eigenvalues, and states the two external results on which the proofs rely.
+
+\subsection{Phase space and integrability}
+Let $V\in\C[q_1,q_2]$ be a nonzero homogeneous polynomial of degree $k\ge3$. Because $\sqrt{1+|p|^2}$ is
+multivalued over complex momenta, we introduce $u$ as an extra coordinate and work on the smooth affine variety
+\begin{equation}\label{eq:M}
+M=\{(q,p,u)\in\C^5:\ u^2-p_1^2-p_2^2=1,\ u\ne0\},\qquad H=u+V(q),
+\end{equation}
+with the symplectic form pulled back from $\dd q\wedge\dd p$ on $\C^4$ by the projection $(q,p,u)\mapsto(q,p)$,
+which is a local biholomorphism because $u\ne0$. The variety $M$ is connected and contains both sheets
+$u=\pm\sqrt{1+|p|^2}$; the real physical motion lies on the sheet $u>0$. The Hamiltonian vector field of $H$ is
+\begin{equation}\label{eq:flow}
+\dot q=p/u,\qquad \dot p=-\nabla V(q),\qquad \dot u=-p\cdot\nabla V(q)/u .
+\end{equation}
+Here and below $a\cdot b=a_1b_1+a_2b_2$ is the complex \emph{bilinear} product, not the Hermitian one.
+
+\begin{definition}\label{def:integrable}
+$H$ is \emph{meromorphically integrable on $M$} if there is a meromorphic function $F$ on $M$ with $\{H,F\}=0$ and
+$\dd H\wedge \dd F\not\equiv0$. It is \emph{rationally integrable} if such an $F$ can be chosen rational in
+$(q,p,u)$.
+\end{definition}
+
+Because $M$ is connected, a pair $(H,F)$ that is independent somewhere is independent on a dense open subset of every
+nonempty open set, by the identity theorem. This convention excludes neither local first integrals near a single
+point (which always exist) nor merely smooth integrals on one real energy surface; the theorems below say nothing
+about those.
+
+\subsection{Darboux directions and eigenvalues}
+A vector $d\in\C^2$ is \emph{nonisotropic} if $d\cdot d\ne0$; the isotropic lines are spanned by $(1,\pm i)$, and
+the corresponding linear forms $\ell_\pm=q_1\pm iq_2$ are the \emph{isotropic linear factors} that a complex
+polynomial may contain. Real nonzero vectors are always nonisotropic.
+
+\begin{definition}\label{def:darboux}
+A projective direction $[d]$ is a \emph{proper Darboux direction} of $V$ if $\nabla V(d)=\gamma d$ for some
+$\gamma\ne0$. If $d$ is nonisotropic, we normalise $d\cdot d=1$; then $\gamma^{-1}V''(d)$ has the eigenvector $d$
+with eigenvalue $k-1$ (by Euler's identity) and a second eigenvalue $\lambda$ on the orthogonal line, called the
+\emph{transverse eigenvalue}.
+\end{definition}
+
+Rotations $q\mapsto Rq$ with $R^{T}R=I$ (real or complex) preserve \eqref{eq:H} together with the bilinear product,
+hence preserve Darboux directions and their eigenvalues. For a nonisotropic proper Darboux direction we may therefore
+assume $d=(1,0)$; then $\gamma=kV(1,0)$, the Darboux condition is $\partial_2V(1,0)=0$, and
+$\lambda=\partial_2^2V(1,0)/\gamma$.
+
+Along such a direction the equations \eqref{eq:flow} have the explicit \emph{homothetic} solutions $q=\varphi(t)d$,
+$p=\dot\varphi(t)u\,d$. On the energy level $H=s$ write
+\begin{equation}\label{eq:homothetic}
+z=\tfrac{\gamma}{k}\varphi^k=V(\varphi d),\qquad u=s-z,\qquad \psi^2:=(p\cdot d)^2=(s-z)^2-1 .
+\end{equation}
+For $s\in\{0,1\}$ these relations define an algebraic curve in the $(\varphi,\psi)$-plane; it is irreducible (for
+$s=0$, $\psi^2=(\gamma\varphi^k/k)^2-1$; for $s=1$, $\psi^2=z(z-2)$ with $z=\gamma\varphi^k/k$, and neither right-hand
+side is a square). Let $\Gamma_s$ be its normalisation with finitely many points removed: those with $\varphi=0$,
+$\psi=0$ or $u=0$, and those over $\varphi=\infty$. Then $\Gamma_s$ is a connected Riemann surface, the map to $M$ is
+an embedding onto a phase curve of \eqref{eq:flow} on which the vector field does not vanish, and we call $\Gamma_s$ the
+\emph{homothetic phase curve at energy $s$}. These curves are complex; they need not carry real motions.
+
+\subsection{Tools}
+We use two published results. The first is the Morales--Ramis--Sim\'o theory \cite{MRS07}. Let $\Gamma\subset M$ be a
+non-equilibrium phase curve and $o\in\Gamma$. Continuing the flow of \eqref{eq:flow} along a closed loop $\gamma$ in
+$\Gamma$ based at $o$ gives a germ of symplectic diffeomorphism $\rho(\gamma)$ of $(M,o)$ (the \emph{holonomy} of
+$\gamma$), and $\gamma\mapsto\rho(\gamma)$ is a group homomorphism (anti-homomorphism with the usual loop
+composition) from $\pi_1(\Gamma,o)$. The \emph{$N$-jet} of a germ is its Taylor expansion up to total degree $N$.
+A group is \emph{virtually commutative} if it has a commutative subgroup of finite index.
+
+\begin{theorem}[{\cite[Sec.~2, Corollary~2(ii)]{MRS07}}]\label{thm:MRS}
+If the Hamiltonian system is completely integrable with meromorphic first integrals in a neighbourhood of $\Gamma$,
+not necessarily independent on $\Gamma$ itself, then for every $N\ge1$ the group of $N$-jets of the holonomies
+$\rho(\gamma)$, $\gamma\in\pi_1(\Gamma,o)$, is virtually commutative.
+\end{theorem}
+
+The hypothesis is met by global integrability on $M$: restrict $F$ to a neighbourhood of $\Gamma$; independence on a
+dense open set persists, and $F$ may have poles or indeterminacy points on $\Gamma$ itself. Our proofs use a version
+of Theorem~\ref{thm:MRS} for the flow restricted to an energy surface and projected along the flow lines; this is
+remarked in \cite[Sec.~2, after Corollary~2]{MRS07}, and we record the short argument.
+
+\begin{lemma}[normal holonomy]\label{lem:normal}
+Let $\Gamma$ lie in the energy surface $M_s=\{H=s\}$, let $\Sigma\subset M_s$ be a two-dimensional complex
+submanifold through $o$ transverse to $\Gamma$, and let $h_\gamma$ be the germ at $o$ of the holonomy (transport) map from $\Sigma$ to $\Sigma$, along $\gamma$, of the foliation of $M_s$ by flow lines of \eqref{eq:flow} (the \emph{normal holonomy}). Under
+the hypothesis of Theorem~\ref{thm:MRS}, the group of $N$-jets of the maps $h_\gamma$ is virtually commutative for
+every $N\ge1$.
+\end{lemma}
+
+\begin{proof}
+Near $o$, let $\pi:U\to\Sigma$ be the holomorphic projection of a neighbourhood $U$ of $o$ in $M_s$ along flow lines;
+thus $\pi\circ\phi_t=\pi$ wherever defined, where $\phi_t$ is the flow. Each holonomy $\rho(\gamma)$ is a germ of the
+form $\phi_{T}$ continued along $\gamma$; it preserves $H$, so it maps $M_s$ to itself, and it commutes with the flow.
+Hence $\pi\circ\rho(\gamma)\circ\pi=\pi\circ\rho(\gamma)$ on germs at $o$, and $h_\gamma=\pi\circ\rho(\gamma)|_\Sigma$.
+For two loops,
+$h_\gamma\circ h_\delta=\pi\circ\rho(\gamma)\circ\pi\circ\rho(\delta)|_\Sigma
+=\pi\circ\rho(\gamma)\circ\rho(\delta)|_\Sigma$, so $\rho(\gamma)\mapsto h_\gamma$ is a homomorphism from the
+holonomy group onto the normal holonomy group. The $N$-jet of $h_\gamma$ depends only on the $N$-jet of
+$\rho(\gamma)$ at $o$, because $\pi$ and the inclusion of $\Sigma$ are fixed analytic germs. Therefore the group of
+$N$-jets of normal holonomies is a homomorphic image of the group of $N$-jets of holonomies, and a homomorphic image of
+a virtually commutative group is virtually commutative.
+\end{proof}
+
+We also use the following standard vocabulary for linear differential equations. Continuing a basis of solutions
+of a linear equation around closed loops gives the \emph{monodromy group}, a group of invertible matrices. The
+\emph{differential Galois group} is the group of all symmetries of the solutions that preserve every algebraic and
+differential relation among them over the field of coefficients; it is a linear algebraic group, and its
+\emph{identity component} is its connected part. A singular point is \emph{regular singular} if solutions grow at most
+polynomially there; for equations whose singular points are all regular singular (Fuchsian equations), Schlesinger's
+theorem says that the monodromy group is Zariski dense in the differential Galois group; consequently, if the
+monodromy group is virtually commutative, so is the Galois group, and its identity component is commutative. The first-order Morales--Ramis theorem \cite[Sec.~1]{MRS07} says that
+integrability forces the identity component of the Galois group of the variational equation to be commutative.
+
+The second tool is Kimura's classification \cite{Kimura69} of Riemann (Gauss hypergeometric) equations whose
+differential Galois group has a solvable identity component. It is stated in Appendix~\ref{app:kimura}. For a
+Fuchsian equation with three singular points we write $(\rho,\sigma,\tau)$ for its \emph{exponent differences}, the
+differences of the two local exponents at each singular point.
+
+\section{A necessary spectral restriction}\label{sec:spectral}
+
+This section shows that integrability forces every nonisotropic proper Darboux direction to have a transverse
+eigenvalue of a special integer form; the consequence used later is that an eigenvalue at most one must be $0$ or $1$.
+
+\begin{proposition}\label{prop:spectral}
+Suppose $H$ is meromorphically integrable in a neighbourhood of each of the homothetic phase curves $\Gamma_0$ and
+$\Gamma_1$ attached to a nonisotropic proper Darboux direction $[d]$ (global integrability on $M$ suffices). Then its
+transverse eigenvalue satisfies
+\begin{equation}\label{eq:spectrum}
+\lambda=(n+1)(kn+1)\quad\text{for some }n\in\Z,
+\end{equation}
+and consequently $\lambda\in\{0,1\}\cup[2k-1,\infty)$.
+\end{proposition}
+
+The set in \eqref{eq:spectrum} occurs as one family in \cite[Proposition~2]{PSM23}, and \cite[Theorem~3]{PSM23}
+gives a smaller set under the hypothesis of rational first integrals. Proposition~\ref{prop:spectral} is weaker,
+but it holds for meromorphic integrals and its proof is short.
+
+\begin{proof}
+Normalise $d\cdot d=1$ and rotate so that $d=(1,0)$. Linearising \eqref{eq:flow} along a homothetic solution, the
+transverse components $(\eta,\xi)=(\delta q_2,\delta p_2)$ decouple from the rest, because $V''(d)$ is diagonal and
+$p$ is parallel to $d$:
+$\dot\eta=\xi/u$, $\dot\xi=-\gamma\lambda\varphi^{k-2}\eta$. The monodromy of this \emph{normal variational
+equation} is therefore a quotient of the monodromy of the full variational equation. Using $z$ of
+\eqref{eq:homothetic} as independent variable it becomes
+\begin{equation}\label{eq:NVE}
+\eta''+\left(\frac{k-1}{kz}+\frac{z-s}{(z-s)^2-1}\right)\eta'
++\frac{\lambda(s-z)}{kz\,[(z-s)^2-1]}\,\eta=0,
+\end{equation}
+which is \cite[eq.~(30)]{PSM23}. At $s=0$ the substitution $x=z^2$, $\eta(z)=y(x)$ gives the Gauss equation
+\begin{equation}\label{eq:G5}
+x(1-x)y''+\Bigl(1-\tfrac1{2k}-\bigl(\tfrac32-\tfrac1{2k}\bigr)x\Bigr)y'+\tfrac{\lambda}{4k}\,y=0,
+\end{equation}
+with exponent differences
+\begin{equation}\label{eq:exp0}
+\rho_0=\tfrac1{2k},\qquad\sigma_0=\tfrac12,\qquad\tau_0=\tfrac{\sqrt\Delta}{2k},\qquad\Delta=(k-1)^2+4k\lambda .
+\end{equation}
+At $s=1$ the singular points $z=0$ and $z=s-1$ of \eqref{eq:NVE} coincide, and \eqref{eq:NVE} is itself a Gauss equation
+in $z/2$ with singular points $z=0,2,\infty$ and exponent differences
+\begin{equation}\label{eq:exp1}
+\rho_1=\tfrac{\sqrt A}{2k},\qquad\sigma_1=\tfrac12,\qquad\tau_1=\tfrac{\sqrt\Delta}{k}=2\tau_0,\qquad
+A=(k-2)^2+8k\lambda .
+\end{equation}
+Both reductions are the flat specialisation of \cite[Sec.~3.1, eqs.~(31)--(34)]{SP25}.
+
+\emph{From integrability to the Galois groups.} By \cite[Sec.~1--2]{MRS07} (the first-order Morales--Ramis theorem
+and its monodromy corollary), integrability near $\Gamma_s$ makes the monodromy group of the variational equation
+along $\Gamma_s$ virtually commutative, hence also that of \eqref{eq:NVE}. The coordinate $z$ (and $x=z^2$) is a
+finite algebraic map from $\Gamma_s$ onto the $z$-line (resp.\ $x$-line) minus finitely many points; after removing
+the branch values, it is a finite covering, so the monodromy of the pulled-back equation has finite index in the
+monodromy of \eqref{eq:G5} (resp.\ \eqref{eq:NVE} at $s=1$); removing further ordinary points adds only trivial
+monodromy. Hence the monodromy groups of the two Gauss equations are virtually commutative. These equations are regular singular, so by Schlesinger's theorem their monodromy groups are Zariski dense in their differential Galois groups over $\C(x)$ (resp.\ $\C(z)$), and the identity components of those Galois groups are commutative, in
+particular solvable. This argument does not require $F$ to extend meromorphically to the points removed from
+$\Gamma_s$ or to infinity.
+
+\emph{Kimura's alternatives at $s=0$.} Apply Theorem~\ref{thm:kimura} to \eqref{eq:exp0}. In alternative (I) some
+signed sum $\pm\rho_0\pm\sigma_0\pm\tau_0$ is an odd integer; with $\rho_0=1/(2k)$, $\sigma_0=1/2$ this means
+$\sqrt\Delta=(2n+1)k+1$ for some $n\in\Z$ (signs are absorbed into $n$), and the identity
+\[
+((2n+1)k+1)^2-(k-1)^2=4k(n+1)(kn+1)
+\]
+gives \eqref{eq:spectrum}. In alternative (II) the triple belongs to one of the fifteen families of Schwarz's table.
+Every entry of families 2--15 has fractional part in $\{\tfrac12,\tfrac13,\tfrac23,\tfrac14,\tfrac34,\tfrac15,
+\tfrac25,\tfrac35,\tfrac45\}$, whereas $\pm1/(2k)$ has fractional part $1/(2k)\le1/6$ or $1-1/(2k)\ge5/6$ for $k\ge3$.
+So only family 1 is possible: two of the differences lie in $\tfrac12+\Z$. Since $\rho_0\notin\tfrac12+\Z$, this
+forces $\tau_0=\nu+\tfrac12$, i.e.\ $\Delta=k^2(2\nu+1)^2$, for some $\nu\in\Z$.
+
+\emph{Eliminating family 1 with $s=1$.} In that case $\tau_1=2\nu+1$ is an odd integer. Apply
+Theorem~\ref{thm:kimura} to \eqref{eq:exp1}. An integer entry cannot occur in families 2--15. In family 1 the
+arbitrary entry must be $\tau_1$, so $\rho_1\in\tfrac12+\Z$. In alternative (I), $\pm\rho_1\pm\tfrac12\pm(2\nu+1)$ odd
+also gives $\rho_1\in\tfrac12+\Z$. Either way $A=k^2(2\mu+1)^2$ for some $\mu\in\Z$. But
+\[
+A=2\Delta-k^2+2=k^2\bigl(2(2\nu+1)^2-1\bigr)+2,
+\]
+so $k^2$ divides $2$, impossible for $k\ge3$. Hence only alternative (I) at $s=0$ remains, proving
+\eqref{eq:spectrum}.
+
+Finally, $n=-1$ and $n=0$ give $\lambda=1$ and $\lambda=0$; $n\ge1$ gives $\lambda\ge2k+2$; and $n=-j-1$ with $j\ge1$
+gives $\lambda=j\,(k(j+1)-1)\ge2k-1$.
+\end{proof}
+
+\section{Rigidity at transverse eigenvalue zero}\label{sec:zero}
+
+This section proves the main new local result: a transverse eigenvalue zero forces the potential to depend on one
+coordinate only.
+
+\begin{theorem}\label{thm:zero}
+Let $V\in\C[x,y]$ be homogeneous of degree $k\ge3$ and let $[d]$ be a nonisotropic proper Darboux direction with
+transverse eigenvalue $\lambda=0$. If $H$ is meromorphically integrable in a neighbourhood of the homothetic phase
+curve $\Gamma_0$ attached to $[d]$ (global integrability on $M$ suffices), then, in orthogonal coordinates with
+$d=(1,0)$,
+\begin{equation}\label{eq:R1}
+V(x,y)=a\,x^k,\qquad a\ne0 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the first transverse term.} Write $a=V(1,0)$, which is nonzero because $\gamma=ka\ne0$. The Darboux
+condition and $\lambda=0$ give $V_y(1,0)=V_{yy}(1,0)=0$. If \eqref{eq:R1} fails, there is a least integer $m$ with
+$3\le m\le k$ such that
+\begin{equation}\label{eq:R2}
+V(x,y)=a x^k+c_m x^{k-m}y^m+\sum_{j=m+1}^{k}c_j x^{k-j}y^j,\qquad c_m\ne0 .
+\end{equation}
+(The bound $m\le k$ uses polynomiality.) Put $N=m-1\ge2$. We show that the $N$-jets of the normal holonomy along
+$\Gamma_0$ do not form a virtually commutative group, contradicting Lemma~\ref{lem:normal}.
+
+\emph{Step 2: the reduced system on $H=0$.} On $H=0$ we have $u=-V$. Write $P=p_y$. The constraint defining $M$ gives
+$p_x^2=V(x,y)^2-1-P^2$. Along $\Gamma_0$ we have $y=P=0$ and
+\begin{equation}\label{eq:R4}
+\psi^2=a^2x^{2k}-1,\qquad p_x=\psi,\qquad u=-a x^k .
+\end{equation}
+Here $\Gamma_0$ is the smooth hyperelliptic curve \eqref{eq:R4} (of genus $k-1$) with the points $x=0$, $\psi=0$ and
+the two points at infinity removed. On $\Gamma_0$ we have $\dot x=p_x/u=\psi/u\ne0$, so $x$ is a local coordinate along
+the orbit and can be used as the time variable. Near any point of $\Gamma_0$ the motion in $\{H=0\}$ is described, with
+$x$ as time, by the canonical equations of
+\begin{equation}\label{eq:R5}
+K(x,y,P)=-\sqrt{V(x,y)^2-1-P^2},
+\end{equation}
+the branch being chosen so that the square root equals $\psi$ on the orbit. Indeed, from \eqref{eq:flow} with
+$u=-V$,
+\begin{equation}\label{eq:R6}
+\frac{\dd y}{\dd x}=\frac{\dot y}{\dot x}=\frac{P}{p_x}=\frac{\partial K}{\partial P},\qquad
+\frac{\dd P}{\dd x}=\frac{-V_y}{p_x/u}=\frac{VV_y}{p_x}=-\frac{\partial K}{\partial y}.
+\end{equation}
+Take as transversal $\Sigma$ the surface $\{x=x_0,\ H=0\}$ near a base point $o\in\Gamma_0$, with coordinates
+$(y,P)$. The normal holonomy $h_\gamma$ of Lemma~\ref{lem:normal} along a loop $\gamma$ of $\Gamma_0$ is then the map
+obtained by continuing solutions of \eqref{eq:R6} along the projection of $\gamma$ to the $x$-plane, with the branch of
+$\psi$ determined by $\gamma$.
+
+Give $y$ and $P$ degree one. Expanding \eqref{eq:R5} with \eqref{eq:R2},
+\begin{equation}\label{eq:R7}
+K=-\psi+\frac{P^2}{2\psi}+\frac{P^4}{8\psi^3}+\cdots-\frac{a c_m x^{2k-m}}{\psi}\,y^m+O(m+1),
+\end{equation}
+where the dots are even powers of $P$ only and $O(m+1)$ collects terms of total degree at least $m+1$. In particular,
+every term of degree below $m$ is a function of $P$ alone, and mixed terms from the square root have degree at least
+$m+2$.
+
+\emph{Step 3: two coefficients of the holonomy jet.} By \eqref{eq:R6}--\eqref{eq:R7}, the linear part of $h_\gamma$ is
+the shear
+\begin{equation}\label{eq:R8}
+(y,P)\mapsto(y+A_\gamma P,\ P),\qquad A_\gamma=\oint_\gamma\frac{\dd x}{\psi}.
+\end{equation}
+In the $P$-equation, $\dd P/\dd x=-\partial K/\partial y$ has no term of degree below $N$, because the terms of
+\eqref{eq:R7} below degree $m$ do not depend on $y$. Hence the $P$-component of $h_\gamma$ has no nonlinear terms of
+degree below $N$, and its degree-$N$ part has the form
+\begin{equation}\label{eq:R9}
+(h_\gamma)_P=P+B_\gamma y^N+C_\gamma y^{N-1}P+\sum_{j=2}^{N}D_{\gamma,j}\,y^{N-j}P^j+O(N+1).
+\end{equation}
+The coefficient of $y^N$ is
+\begin{equation}\label{eq:R10}
+B_\gamma=m\,a\,c_m\oint_\gamma\frac{x^{2k-m}\,\dd x}{\psi}.
+\end{equation}
+To see this, start with $P=0$ and $y=y_0$. Up to degree $N-1$ the solution stays at $P=0$, $y=y_0$, since the
+nonlinear terms below degree $N$ in the $y$-equation are functions of $P$ only. At degree $N$ the $P$-equation reads
+$\dd P/\dd x=m a c_m x^{2k-m}\psi^{-1}y_0^{N}$, and the resulting change of $y$ affects $P$ only at higher degree.
+
+\emph{Step 4: commuting jets force proportional periods.} The $y$-component of $h_\gamma$ is
+$y+A_\gamma P+(\text{terms of degree}\ge2)$. Composing two maps of the form \eqref{eq:R8}--\eqref{eq:R9}, the
+coefficient of $y^{N-1}P$ in the $P$-component of $h_\gamma\circ h_\delta$ is
+\begin{equation}\label{eq:R11}
+C_\gamma+C_\delta+N B_\gamma A_\delta,
+\end{equation}
+and for $h_\delta\circ h_\gamma$ it is $C_\gamma+C_\delta+NB_\delta A_\gamma$. Only the linear part of the
+$y$-component of the inner map can contribute to these degree-$N$ coefficients: substituting a term of degree at least
+two into a homogeneous term of degree $N$ produces degree at least $N+1$, and the terms $D_{\gamma,j}$, which contain
+$P^2$, cannot produce $y^{N-1}P$. Hence commuting $N$-jets satisfy
+\begin{equation}\label{eq:R13}
+A_\gamma B_\delta-A_\delta B_\gamma=0 .
+\end{equation}
+The same computation shows that $A$ and $B$ are additive under composition, so $(A,B)$ is a homomorphism from
+$\pi_1(\Gamma_0)$ to $\C^2$; in particular $A_{\gamma^r}=rA_\gamma$, $B_{\gamma^r}=rB_\gamma$. If the $N$-jet group
+were virtually commutative, then for any two loops some positive powers $\gamma^r,\delta^{r'}$ would have commuting
+jets, and \eqref{eq:R13} for these powers gives \eqref{eq:R13} for $\gamma,\delta$. Thus all vectors
+$(A_\gamma,B_\gamma)$ would lie on one complex line. Step~5 shows that they do not.
+
+\emph{Step 5: two independent periods.} We prove the following statement, which is also used in
+Section~\ref{sec:one}.
+
+\begin{lemma}\label{lem:periods}
+Let $a\ne0$, $k\ge3$, and let $\Gamma$ be the curve $\psi^2=a^2x^{2k}-1$ with the points $x=0$, $\psi=0$ and the two
+points at infinity removed. For each integer $j$ with $k\le j\le 2k-2$, the period vectors of
+$\omega_0=\dd x/\psi$ and $\omega_j=x^j\,\dd x/\psi$ over closed loops in $\Gamma$ are linearly independent.
+\end{lemma}
+
+\begin{proof}
+Suppose $\alpha\omega_0+\beta\omega_j$ has zero period on every loop of $\Gamma$. Then it has a single-valued
+primitive $G$ on $\Gamma$. Both differentials are holomorphic at the finite points of the smooth affine curve,
+including the branch points. At each of the two points at infinity, with local parameter $1/x$, we have
+$\psi=\pm a x^k(1-a^{-2}x^{-2k})^{1/2}$, so $\omega_j$ expands in powers $x^{j-k-2k\ell}\,\dd x$, $\ell\ge0$; since
+$0\le j-k\le k-2$, the exponent $-1$ never occurs, and $\omega_0$ is holomorphic there. Hence there are no residues,
+and $G$ extends meromorphically to the compact curve. Let $\iota(x,\psi)=(x,-\psi)$; the differential is odd under
+$\iota$, so after subtracting a constant, the odd part $\tfrac12(G-G\circ\iota)$ is also a primitive and has the form
+$R(x)\psi$ with $R\in\C(x)$. Since $R\psi$ is regular at finite points other than branch points, $R$ has no poles away
+from the roots of $a^2x^{2k}-1$; at such a root, a pole of order $h\ge1$ of $R$ would give $R\psi$ the local order
+$1-2h<0$ in the local parameter $\psi$, which is impossible. So $R$ is a polynomial. Now
+\begin{equation}\label{eq:R15}
+\dd(R\psi)=\frac{(a^2x^{2k}-1)R'(x)+k a^2x^{2k-1}R(x)}{\psi}\,\dd x .
+\end{equation}
+If $R\ne0$ has degree $e$, the numerator has degree $e+2k-1$ with leading coefficient $a^2(e+k)$ times that of $R$,
+which is nonzero. It cannot equal $\alpha+\beta x^j$, of degree at most $2k-2$. So $R=0$ and $\alpha=\beta=0$.
+\end{proof}
+
+The range is sharp: $x^{2k-1}\dd x/\psi=\dd\psi/(ka^2)$ is exact. Applying Lemma~\ref{lem:periods} with
+$j=2k-m\in[k,2k-3]$ and using $mac_m\ne0$ in \eqref{eq:R10}, the vectors $(A_\gamma,B_\gamma)$ span $\C^2$,
+contradicting Step~4. Hence no first transverse term exists, and \eqref{eq:R1} holds.
+\end{proof}
+
+\begin{remark}[why the classical analogue differs]\label{rem:classical}
+For the classical Hamiltonian $\tfrac12|p|^2+V$ the same reduction gives, in place of $x^{2k-m}\dd x/\psi$, a
+differential with $x^{k-m}$, which for $m=k$ is a constant multiple of $\dd x/\psi$, so the obstruction disappears.
+This is consistent with the classical integrability of $ax^k+by^k$, whose Darboux direction $(1,0)$ has $\lambda=0$.
+The factor $V^2$ under the square root in \eqref{eq:R5}, which comes from the relativistic kinetic term, is what doubles
+the power.
+\end{remark}
+
+\section{Rigidity at transverse eigenvalue one}\label{sec:one}
+
+This section shows, by the same mechanism in polar coordinates, that a transverse eigenvalue one forces a radial
+potential.
+
+\begin{theorem}\label{thm:one}
+Let $V\in\C[q_1,q_2]$ be homogeneous of degree $k\ge3$ and let $[d]$ be a nonisotropic proper Darboux direction with
+transverse eigenvalue $\lambda=1$. If $H$ is meromorphically integrable in a neighbourhood of the homothetic phase
+curve $\Gamma_0$ attached to $[d]$, then $k$ is even and $V=c(q_1^2+q_2^2)^{k/2}$ with $c\ne0$.
+\end{theorem}
+
+The conclusion can also be obtained from the transfer of integrability to the classical Hamiltonian
+\cite[Proposition~1]{PSM23} combined with Combot's theorem on multiple Darboux points \cite[Theorem~1]{Combot13}.
+The direct proof below keeps the paper self-contained.
+
+\begin{proof}
+Rotate so that $d=(1,0)$ and introduce canonical polar coordinates
+\begin{equation}\label{eq:polar}
+q=(r\cos\theta,r\sin\theta),\qquad
+p=\Bigl(p_r\cos\theta-\tfrac Lr\sin\theta,\ p_r\sin\theta+\tfrac Lr\cos\theta\Bigr),
+\end{equation}
+with canonical one-form $p_r\,\dd r+L\,\dd\theta$. These are single-valued near the whole punctured curve $\Gamma_0$:
+on a thin complex cone $|q_2/q_1|<\varepsilon$ around the line $q_2=0$, define $\theta=\arctan(q_2/q_1)$ and
+$r=q_1\sqrt{1+(q_2/q_1)^2}$ with the branches equal to $0$ and $1$ at $q_2/q_1=0$. Along $\Gamma_0$ we have $r=q_1$ and
+$\theta=0$, and winding of $q_1$ around $0$ produces no monodromy of $\theta$.
+
+Write $V=r^kU(\theta)$. Then $a=U(0)\ne0$, the Darboux condition is $U'(0)=0$, and a direct computation of the
+Hessian gives $\lambda=1+U''(0)/(kU(0))$; hence $U''(0)=0$. If $U$ is not constant, then, $U$ being analytic,
+\begin{equation}\label{eq:O3}
+U(\theta)=a+c_m\theta^m+O(\theta^{m+1}),\qquad m\ge3,\ c_m\ne0 .
+\end{equation}
+On $H=0$, solving for $p_r$ and using $r$ as time (as $x$ in Section~\ref{sec:zero}) gives the reduced Hamiltonian
+\begin{equation}\label{eq:O4}
+K(r,\theta,L)=-\sqrt{r^{2k}U(\theta)^2-1-L^2/r^2},
+\end{equation}
+with $\psi^2=a^2r^{2k}-1$ on the orbit, and
+\[
+K=-\psi+\frac{L^2}{2r^2\psi}-\frac{a c_m r^{2k}}{\psi}\theta^m+\cdots,
+\]
+where every omitted term of degree below $m$ depends only on $L$. Exactly as in Steps~3--4 of
+Theorem~\ref{thm:zero}, with $(y,P)$ replaced by $(\theta,L)$ and $N=m-1$, the normal holonomy has the form
+\eqref{eq:R8}--\eqref{eq:R9} with
+\begin{equation}\label{eq:O5}
+A_\gamma=\oint_\gamma\frac{r^{-2}\,\dd r}{\psi},\qquad B_\gamma=m\,a\,c_m\oint_\gamma\frac{r^{2k}\,\dd r}{\psi},
+\end{equation}
+and virtual commutativity would force all vectors $(A_\gamma,B_\gamma)$ onto one line. (Here no bound on $m$ is
+needed.) The exact differentials
+\[
+\dd(r\psi)=\bigl[(k+1)a^2r^{2k}-1\bigr]\frac{\dd r}{\psi},\qquad
+\dd(\psi/r)=\bigl[(k-1)a^2r^{2k-2}+r^{-2}\bigr]\frac{\dd r}{\psi}
+\]
+have single-valued primitives on the punctured orbit, so their periods vanish and
+\begin{equation}\label{eq:O6}
+\oint_\gamma\frac{r^{2k}\dd r}{\psi}=\frac{1}{(k+1)a^2}\oint_\gamma\frac{\dd r}{\psi},\qquad
+\oint_\gamma\frac{r^{-2}\dd r}{\psi}=-(k-1)a^2\oint_\gamma\frac{r^{2k-2}\dd r}{\psi}.
+\end{equation}
+By Lemma~\ref{lem:periods} with $j=2k-2$, the period vectors of $\dd r/\psi$ and $r^{2k-2}\dd r/\psi$ are independent;
+all scalar factors above are nonzero; so the vectors $(A_\gamma,B_\gamma)$ span $\C^2$, a contradiction. Hence $U$ is
+constant, $V=a(q_1^2+q_2^2)^{k/2}$ on an open set and therefore identically, and polynomiality forces $k$ to be even
+(for odd $k$, $U(\theta+\pi)=-U(\theta)$ rules out a nonzero constant).
+\end{proof}
+
+\section{The real classification}\label{sec:proofA}
+
+This section states and proves the main theorem for real potentials, and shows that only integrability near two
+explicit phase curves is needed for the non-integrability direction.
+
+\begin{theoremA}
+Let $V\in\R[q_1,q_2]$ be nonzero and homogeneous of degree $k\ge3$, and let $H$ be as in \eqref{eq:H} on the
+phase space $M$ of \eqref{eq:M}. The following are equivalent.
+\begin{enumerate}[label=(\roman*)]
+\item $H$ is meromorphically integrable on $M$.
+\item $H$ is rationally integrable on $M$.
+\item After a real rotation of $(q_1,q_2)$, either $V=c\,q_1^k$ with $c\in\R\setminus\{0\}$, or $k$ is even and
+$V=c\,(q_1^2+q_2^2)^{k/2}$ with $c\in\R\setminus\{0\}$.
+\end{enumerate}
+In the two cases of (iii) a second first integral is, respectively, the momentum $p_2$ and the angular momentum
+$q_1p_2-q_2p_1$.
+\end{theoremA}
+
+The theorem allows $V$ to have repeated real factors and to contain the factor $q_1^2+q_2^2$ to any power. It does
+not cover complex-coefficient potentials in general; for instance $c(q_1+iq_2)^k$ is integrable, with the conserved
+null momentum $p_1+ip_2$ (Section~\ref{sec:complex}).
+
+\begin{proof}
+(iii)$\Rightarrow$(ii): if $V=cq_1^k$, then $\dot p_2=-\partial_2V=0$; if $V$ is radial, the angular momentum is
+conserved. Both are polynomial, and $\dd H\wedge\dd F\not\equiv0$. (ii)$\Rightarrow$(i) is trivial.
+
+(i)$\Rightarrow$(iii): let $f(\theta)=V(\cos\theta,\sin\theta)$, and choose $\theta_0$ where $|f|$ attains its
+maximum, which is positive since $V\ne0$. Then $f'(\theta_0)=0$ and $f''(\theta_0)/f(\theta_0)\le0$. For the real unit
+vector $d=(\cos\theta_0,\sin\theta_0)$, homogeneity gives
+\begin{equation}\label{eq:C1}
+\nabla V(d)=k f(\theta_0)\,d,\qquad \lambda=1+\frac{f''(\theta_0)}{kf(\theta_0)}\le1 ,
+\end{equation}
+so $[d]$ is a real, hence nonisotropic, proper Darboux direction with $\lambda\le1$ (this choice of direction is the
+device of \cite[Lemma~3.1]{Combot16}). By Proposition~\ref{prop:spectral}, $\lambda\in\{0,1\}$. If $\lambda=0$,
+Theorem~\ref{thm:zero} in the real orthogonal coordinates aligned with $d$ gives $V=cq_1^k$; if $\lambda=1$,
+Theorem~\ref{thm:one} gives an even-degree radial power. Since $V$ is real and the rotation is real, $c$ is real.
+\end{proof}
+
+The proof of (i)$\Rightarrow$(iii) uses integrability only near $\Gamma_0$ and $\Gamma_1$ for the single direction
+$d$, so it proves the following stronger non-integrability statement.
+
+\begin{theorem}[local version]\label{thm:local}
+Let $V$ be real, nonzero, homogeneous of degree $k\ge3$ and not of the forms in (iii). Let $d$ be a real unit vector at
+which $|V|$ restricted to the unit circle is maximal, and let $\Gamma_0,\Gamma_1$ be the homothetic phase curves
+attached to $[d]$ at energies $0$ and $1$. Then $H$ is not meromorphically integrable in a neighbourhood of
+$\Gamma_0$, or not in a neighbourhood of $\Gamma_1$.
+\end{theorem}
+
+\section{Complex coefficients}\label{sec:complex}
+
+Here the classification is extended to complex-coefficient potentials as far as the method allows, and the two
+families that it does not decide are named.
+
+Write $\ell_\pm=q_1\pm iq_2$. Every nonzero homogeneous $V\in\C[q_1,q_2]$ of degree $k$ factors uniquely as
+\begin{equation}\label{eq:factor}
+V=\ell_+^{\,\alpha}\,\ell_-^{\,\beta}\,U,\qquad \alpha,\beta\ge0,\qquad \delta:=\deg U=k-\alpha-\beta,
+\end{equation}
+with neither $\ell_+$ nor $\ell_-$ dividing $U$; thus $\delta>0$ means that $V$ has at least one nonisotropic linear
+factor. Real potentials have $\alpha=\beta$.
+
+\begin{theoremB}
+Let $V\in\C[q_1,q_2]$ be nonzero, homogeneous of degree $k\ge3$, factored as in \eqref{eq:factor}, with $\delta>0$,
+$\alpha\ne k/2$ and $\beta\ne k/2$. Then $H$ is meromorphically integrable on $M$ if and only if $\alpha=\beta=0$ and
+$V$ is a power of a single nonisotropic linear form; in that case it is rationally integrable.
+\end{theoremB}
+
+\begin{corollaryC}
+If $V$ has no isotropic linear factor, then $H$ is meromorphically integrable on $M$ if and only if $V=c\,L^k$ for a
+nonisotropic linear form $L$. In particular, for every $k\ge3$, a nonradial potential with $k$ distinct nonisotropic
+proper Darboux directions, which is the generic case considered in \cite[Sec.~VI]{PSM23}, is not integrable.
+\end{corollaryC}
+
+For a generic potential the $k$ transverse eigenvalues satisfy $\sum_{i=1}^k1/(\lambda_i-1)=-1$. This relation is due
+to Maciejewski and Przybylska \cite[Corollary~2.1, Theorem~1.2]{MP05}, who also proved the version for potentials with isotropic
+factors of multiplicity different from $k/2$ \cite[Theorem~2.3, eq.~(2.42)]{MP05}; it is recalled in
+\cite[Sec.~VI, eq.~(51)]{PSM23}. Our identity \eqref{eq:S2} below is \cite[eq.~(2.42)]{MP05} written with the isotropic
+directions kept separate from the nonisotropic ones (in \cite{MP05} an isotropic factor of multiplicity one gives an
+isotropic Darboux point that is counted among the $\lambda_i$). Lemma~\ref{lem:hg} collects the facts we need in our
+notation: parts (a)--(e) are contained in \cite[Sec.~II, eq.~(2.30), Propositions~2.7--2.9 and the proofs of
+Theorems~2.1 and~2.3]{MP05}, and we include short proofs to keep the argument self-contained; the bound (f), which is
+what makes the counting step uniform in the multiplicities, is a small refinement of the multiplicity count in
+\cite[Propositions~2.8--2.9]{MP05}. The conjecture in \cite[Sec.~VI]{PSM23} concerns integer solutions of this
+relation with each $\lambda_i$ in their admissible set; its stated consequence is that all generic polynomial
+potentials are non-integrable. Corollary~C proves that consequence, under meromorphic integrability, without deciding
+the arithmetic question: the proof uses rigidity rather than arithmetic.
+
+The proof uses an affine chart. Choose orthogonal coordinates (complex rotations are allowed) such that the direction
+$(0,1)$ is neither a root of $V$ nor a Darboux direction; this is possible unless every direction is a Darboux
+direction, which happens only when $V$ is radial (then $\delta=0$). Set
+\begin{equation}\label{eq:hg}
+v(t)=V(1,t),\qquad h(t)=kv(t)-tv'(t),\qquad g(t)=(1+t^2)v'(t)-ktv(t).
+\end{equation}
+Then $h(t)=\partial_1V(1,t)$ and $v'(t)=\partial_2V(1,t)$, so $(1,t)$ is a Darboux direction exactly when $g(t)=0$,
+and it is proper when moreover $h(t)\ne0$; at such a root, $\gamma=h(t)$. The roots $t=\pm i$ correspond to the
+isotropic directions, and $\pm i$ is a root of $v$ of multiplicity $\alpha$, resp.\ $\beta$.
+
+\begin{lemma}\label{lem:hg}
+Let $V$ be nonradial and the chart as above.
+\begin{enumerate}[label=(\alph*)]
+\item $\gcd(h,g)=\gcd(v,v')$ (up to a constant factor), and $\deg g=k$.
+\item If $t_i\ne\pm i$, $g(t_i)=0$ and $v(t_i)\ne0$, then $[(1,t_i)]$ is a nonisotropic proper Darboux direction, and
+its transverse eigenvalue satisfies $g'(t_i)/h(t_i)=\lambda_i-1$. In particular $t_i$ is a multiple root of $g$ if and
+only if $\lambda_i=1$.
+\item At a root $t_0\ne\pm i$ of $v$, the rational function $h/g$ is regular.
+\item If $\alpha>0$ and $\alpha\ne k/2$, then $h/g$ has a simple pole at $t=i$ with residue $\alpha/(k-2\alpha)$; if
+$\alpha=0$, then $g(i)\ne0$ and $h/g$ is regular there. The same holds at $t=-i$ with $\beta$ in place of $\alpha$.
+\item $h/g=-1/t+O(t^{-2})$ as $t\to\infty$, so the finite residues of $h/g$ sum to $-1$.
+\item Let $\hat g=g/\gcd(v,v')$, and let $N_D$ be the number of nonisotropic proper Darboux directions. Then
+$N_D\le\delta'$, where $\delta'\le\delta$ is the number of distinct roots of $U(1,t)$. This holds for all $\alpha,\beta$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) From \eqref{eq:hg} one checks $v'=th+g$ and $kv=(1+t^2)h+tg$. Hence a common factor of $h$ and $g$ divides
+$v$ and $v'$, and conversely, by the definitions of $h$ and $g$. The degree of $g$ is computed in (e).
+
+(b) At a root with $v(t_i)\ne0$, $kv=(1+t^2)h$ gives $h(t_i)\ne0$, so the direction is proper, and nonisotropic since
+$t_i\ne\pm i$. Let $V_{jl}$ denote second derivatives at $(1,t_i)$ and write $t=t_i$. Euler's identity applied to
+$\partial_1V$ and $\partial_2V$ gives $V_{11}+tV_{12}=(k-1)h$ and $V_{12}+tV_{22}=(k-1)v'$, with $V_{12}=h'$ and
+$V_{22}=v''$. The transverse eigenvalue is $\lambda=e^{T}V''e/(\gamma\,e\cdot e)$ with $e=(-t,1)$, $\gamma=h$,
+$e\cdot e=1+t^2$. Substituting $v'=th$ and $kv=(1+t^2)h$ into $g'=2tv'+(1+t^2)v''-kv-ktv'$ and into $e^TV''e$ shows
+$g'(t_i)=(\lambda_i-1)h(t_i)$; this is an identity in $(t,h,v'')$, checked symbolically in the accompanying script.
+
+(c) If $v=(t-t_0)^\mu w$ with $w(t_0)\ne0$, then near $t_0$, $h/v\sim-t_0\mu/(t-t_0)$ and
+$g/v\sim(1+t_0^2)\mu/(t-t_0)$, so $h/g\to-t_0/(1+t_0^2)$.
+
+(d) Write $v=(t-i)^\alpha w$ with $w(i)\ne0$ and $W=w'/w$. Then $h/v=k-t\alpha/(t-i)-tW$ and
+$g/v=\alpha(t+i)+(1+t^2)W-kt$, whose value at $t=i$ is $i(2\alpha-k)\ne0$. Hence
+$h/g=\dfrac{-i\alpha/(t-i)+O(1)}{i(2\alpha-k)+O(t-i)}$, with residue $\alpha/(k-2\alpha)$. If $\alpha=0$, then
+$g(i)=-ikv(i)\ne0$. At $t=-i$ the same computation gives $\beta/(k-2\beta)$, and $g(-i)=ikv(-i)$ when $\beta=0$.
+
+(e) Write $v=v_kt^k+v_{k-1}t^{k-1}+\cdots$. Then $h=v_{k-1}t^{k-1}+\cdots$ and $g=-v_{k-1}t^k+\cdots$, and
+$v_{k-1}=\partial_1V(0,1)\ne0$ because $(0,1)$ is not a Darboux direction. The residue of $h/g$ at infinity is
+therefore $1$, and the sum of all residues on the Riemann sphere is zero.
+
+(f) Since $v_k\ne0$, $v$ has degree $k$, so $\deg\gcd(v,v')=k-(\delta'+\epsilon)$, where $\epsilon\in\{0,1,2\}$ is the
+number of isotropic roots of $v$, and $\deg\hat g=\delta'+\epsilon$ by (a). Each nonisotropic proper Darboux direction
+$t_i$ is a root of $g$ but not of $\gcd(v,v')$ (because $v(t_i)\ne0$), hence a root of $\hat g$. If $\alpha>0$, then
+$g/v$ is regular at $i$ (see (d)), so $i$ is a root of $g$ of multiplicity at least $\alpha$, while its multiplicity in
+$\gcd(v,v')$ is $\alpha-1$; hence $i$ is a root of $\hat g$, and likewise $-i$ if $\beta>0$. These $N_D+\epsilon$ roots
+of $\hat g$ are distinct, so $N_D\le\delta'$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem B]
+The converse is clear: if $V=cL^k$ with $L$ nonisotropic, rotate so that $L=q_1$; then $p_2$ is conserved.
+
+Suppose $H$ is integrable. Since $\delta>0$, $V$ is not radial, so by Theorem~\ref{thm:one} no nonisotropic proper
+Darboux direction has $\lambda=1$. If some such direction has $\lambda=0$, Theorem~\ref{thm:zero} shows that $V$ is a
+power of a nonisotropic linear form, so $\alpha=\beta=0$, as claimed. Assume, for a contradiction, that no direction
+has $\lambda=0$. By Proposition~\ref{prop:spectral}, every nonisotropic proper Darboux direction then has
+\begin{equation}\label{eq:S1}
+\lambda_i\ge2k-1 .
+\end{equation}
+
+A zero of $g$ in $\C$ is a root of $v$, or one of $\pm i$, or a nonisotropic proper Darboux direction
+(Lemma~\ref{lem:hg}(b)). Hence, by Lemma~\ref{lem:hg}(b)--(d), the poles of $h/g$ in $\C$ are: the nonisotropic
+proper Darboux directions $t_1,\dots,t_{N_D}$, which are simple roots of $g$ because $\lambda_i\ne1$, with residues
+$1/(\lambda_i-1)$; and simple poles at $i$ if $\alpha>0$ and at $-i$ if $\beta>0$. By Lemma~\ref{lem:hg}(d)--(e),
+\begin{equation}\label{eq:S2}
+S:=\sum_{i=1}^{N_D}\frac{1}{\lambda_i-1}=-1-\frac{\alpha}{k-2\alpha}-\frac{\beta}{k-2\beta}
+=-\frac{k\,\delta}{(k-2\alpha)(k-2\beta)} ,
+\end{equation}
+the last equality being elementary algebra. Since $k\delta\ne0$, the sum is nonempty, and \eqref{eq:S1} with
+Lemma~\ref{lem:hg}(f) gives
+\begin{equation}\label{eq:S3}
+0<S\le\frac{N_D}{2k-2}\le\frac{\delta}{2k-2}.
+\end{equation}
+Since $\alpha+\beta<k$, at most one of $\alpha,\beta$ exceeds $k/2$. If both are below $k/2$, \eqref{eq:S2} gives
+$S<0$, contradicting \eqref{eq:S3}. If $\alpha>k/2$ (the case $\beta>k/2$ is symmetric), then $0<2\alpha-k<k$ and
+$0<k-2\beta\le k$, so
+\[
+S=\frac{k\delta}{(2\alpha-k)(k-2\beta)}>\frac{\delta}{k}>\frac{\delta}{2k-2},
+\]
+the last step because $k>2$; this again contradicts \eqref{eq:S3}. Therefore a direction with $\lambda=0$ exists, and
+the proof is complete.
+\end{proof}
+
+\begin{proof}[Proof of Corollary C]
+With $\alpha=\beta=0$ we have $\delta=k>0$, and Theorem B applies. For the second sentence: a nonradial potential
+with $k$ distinct nonisotropic proper Darboux directions has $\alpha=\beta=0$ by Lemma~\ref{lem:hg}(f), which does not
+use integrability; and it is not a power $cL^k$, because for $L=q_1$ we have $\nabla V=(kcq_1^{k-1},0)$, so $(1,0)$ is
+the only proper Darboux direction.
+\end{proof}
+
+\paragraph{What Theorem B does not cover.}
+Besides the integrable cases, the method leaves two families undecided in general:
+\begin{enumerate}[label=(\alph*)]
+\item \emph{isotropic monomials} $V=c\,\ell_+^\alpha\ell_-^\beta$ with $\alpha\ne\beta$ and $\alpha,\beta\ge1$
+($\delta=0$); here $g=i(\alpha-\beta)v$ in the chart above, so there is no nonisotropic Darboux direction at all, and
+the homothetic solutions on which this paper relies do not exist (the cases $\alpha=\beta$, radial, and $\alpha\beta=0$,
+pure isotropic powers with conserved null momentum $p_1\pm ip_2$, are integrable);
+\item potentials with $\delta>0$ in which one isotropic factor has multiplicity exactly $k/2$ (so $k$ is even), for
+example $\ell_+^2q_1^2$; then $h/g$ has a pole of order at least two at $\pm i$, its residue depends on the cofactor and not on $\alpha,\beta,k$ alone (as already observed in
+\cite[Remark~2.2]{MP05}), and the counting argument does not apply. Individual members of this family can
+still be decided by Proposition~\ref{prop:spectral} or Theorems~\ref{thm:zero} and~\ref{thm:one} when they have a
+suitable nonisotropic Darboux direction.
+\end{enumerate}
+Real potentials never fall into either family: $\alpha=\beta$ for real $V$, and $\alpha=\beta=k/2$ means $V$ is radial.
+
+\section{Checks, scope and open problems}\label{sec:discussion}
+
+This section records consistency checks against known examples, states precisely what the theorems do not cover, and
+lists natural next problems.
+
+\paragraph{Consistency checks.}
+The integrable potentials pass every step: $cq_1^k$ has $\lambda=0$ at $(1,0)$ and no transverse term; a radial power
+has $\lambda=1$ at every direction. The quartic $x^4-y^4$, proved non-integrable in \cite[Sec.~V]{PSM23}, shows why
+the spectral restriction alone is not enough: both coordinate axes are proper Darboux directions with $\lambda=0$, the
+other two Darboux directions are isotropic, and the residue identity is satisfied (here $\alpha=\beta=1$, $\delta=2$, and $S=-2=-k/\delta$). Theorem~\ref{thm:zero} excludes it through the independent periods of $\dd x/\sqrt{x^8-1}$ and
+$x^4\dd x/\sqrt{x^8-1}$, which make the cubic jet of the normal holonomy non-commutative. Remark~\ref{rem:classical}
+explains why the classically integrable $ax^k+by^k$ is not wrongly excluded by the classical analogue of the argument.
+
+\paragraph{Scope.}
+The theorems concern first integrals that are meromorphic on the connected complex phase space $M$ (or, for
+Theorem~\ref{thm:local}, near two complex phase curves). They do not exclude first integrals that are merely smooth
+or defined only on a real region or a single energy level, and they do not by themselves prove chaotic behaviour,
+although the numerical Poincar\'e sections of \cite{PSM23} indicate chaos in many non-integrable cases. Degrees one
+and two, non-homogeneous potentials and more than two degrees of freedom are outside the statements. Polynomiality is
+used in an essential way in Step~1 of Theorem~\ref{thm:zero} (the order $m$ of the first transverse term is at most
+$k$), so the argument does not extend verbatim to homogeneous analytic or rational potentials.
+
+\paragraph{Open problems.}
+(1) Decide the two complex families listed at the end of Section~\ref{sec:complex}. (2) The curved-space and
+position-dependent-mass relativistic Hamiltonians of \cite{SP25} have analogous homothetic solutions; it is natural to
+ask whether the zero-eigenvalue rigidity transfers. (3) For $n\ge3$ degrees of freedom the extremum argument still
+produces a real Darboux direction with all transverse eigenvalues at most one, but the transverse dynamics is
+higher-dimensional and the rigidity step would need a new period computation. (4) The arithmetic question of
+\cite[Sec.~VI]{PSM23} on integer solutions of the Darboux-point relation remains open.
+
+\paragraph{Data and code availability, and use of AI.}
+The symbolic checks described in Appendix~\ref{app:code} accompany this paper. The research, proofs and text were
+produced with the assistance of AI systems; the arguments were checked by independent rederivation and symbolic
+computation, but the paper has not been refereed.
+
+\appendix
+\section{Kimura's theorem}\label{app:kimura}
+
+This appendix states the classification used in Section~\ref{sec:spectral}, in the form given by Kimura
+\cite{Kimura69} and reproduced in \cite[Appendix, Theorem~4]{PSM23}.
+
+\begin{theorem}[Kimura]\label{thm:kimura}
+Consider a Riemann equation (a second-order Fuchsian equation with three regular singular points) with exponent
+differences $\rho,\sigma,\tau$. The identity component of its differential Galois group is solvable if and only if
+\begin{enumerate}[label=(\Roman*)]
+\item at least one of $\rho+\sigma+\tau$, $-\rho+\sigma+\tau$, $\rho-\sigma+\tau$, $\rho+\sigma-\tau$ is an odd
+integer, or
+\item the numbers $\pm\rho,\pm\sigma,\pm\tau$ (for some choice of signs) belong, in some order, to one of the fifteen
+families of Table~\ref{tab:schwarz}.
+\end{enumerate}
+\end{theorem}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{rllll}
+\toprule
+1 & $1/2+r$ & $1/2+q$ & arbitrary & \\
+2 & $1/2+r$ & $1/3+q$ & $1/3+p$ & \\
+3 & $2/3+r$ & $1/3+q$ & $1/3+p$ & $r+q+p$ even\\
+4 & $1/2+r$ & $1/3+q$ & $1/4+p$ & \\
+5 & $2/3+r$ & $1/4+q$ & $1/4+p$ & $r+q+p$ even\\
+6 & $1/2+r$ & $1/3+q$ & $1/5+p$ & \\
+7 & $2/5+r$ & $1/3+q$ & $1/3+p$ & $r+q+p$ even\\
+8 & $2/3+r$ & $1/5+q$ & $1/5+p$ & $r+q+p$ even\\
+9 & $1/2+r$ & $2/5+q$ & $1/5+p$ & \\
+10 & $3/5+r$ & $1/3+q$ & $1/5+p$ & $r+q+p$ even\\
+11 & $2/5+r$ & $2/5+q$ & $2/5+p$ & $r+q+p$ even\\
+12 & $2/3+r$ & $1/3+q$ & $1/5+p$ & $r+q+p$ even\\
+13 & $4/5+r$ & $1/5+q$ & $1/5+p$ & $r+q+p$ even\\
+14 & $1/2+r$ & $2/5+q$ & $1/3+p$ & \\
+15 & $3/5+r$ & $2/5+q$ & $1/3+p$ & $r+q+p$ even\\
+\bottomrule
+\end{tabular}
+\caption{Schwarz's table as used in Kimura's theorem; $r,q,p\in\Z$.}\label{tab:schwarz}
+\end{table}
+
+Only two features of the table are used: family~1 contains two entries in $\tfrac12+\Z$, and every entry of families
+2--15 has fractional part in $\{\tfrac12,\tfrac13,\tfrac23,\tfrac14,\tfrac34,\tfrac15,\tfrac25,\tfrac35,\tfrac45\}$.
+
+\section{Symbolic checks}\label{app:code}
+
+This appendix lists what the accompanying scripts verify; they check algebra, not the analytic theorems.
+\texttt{code/verify\_physics.py} (SymPy) checks: the derivation of \eqref{eq:NVE} from the flow; the pullback
+\eqref{eq:G5}; the exponent differences \eqref{eq:exp0}--\eqref{eq:exp1}, including infinity; $A=2\Delta-k^2+2$ and
+the factorisation behind \eqref{eq:spectrum}; the flat specialisation of the exponent parameters of \cite{SP25}; the
+jet-composition coefficient \eqref{eq:R11} for symbolic $N$; the first transverse term of \eqref{eq:R7} and its force
+for $3\le m\le k\le8$; the degree and leading coefficient in \eqref{eq:R15}; and the polar identities behind
+\eqref{eq:O6}. \texttt{code/check\_complex.py} checks: the identity $g'(t_i)=(\lambda_i-1)h(t_i)$ of
+Lemma~\ref{lem:hg}(b); the radial eigenvalue $k-1$; the residue formula of Lemma~\ref{lem:hg}(d) symbolically in $a$ and
+$k$ for a generic cofactor; the identity \eqref{eq:S2}; and, for explicit and random potentials, the reduced degrees,
+the simplicity of the isotropic roots, and the residue sum against eigenvalues computed directly from the Hessian. Both
+scripts raise an exception on failure (they do not rely on \texttt{assert}) and give identical output under
+\texttt{python -O}.
+
+\begin{thebibliography}{99}
+
+\bibitem{Combot13}
+T.~Combot, Meromorphically integrable homogeneous potentials with multiple Darboux points, preprint,
+arXiv:1301.6621 (2013).
+
+\bibitem{Combot16}
+T.~Combot, Integrable planar homogeneous potentials of degree $-1$ with small eigenvalues,
+\emph{Annales de l'Institut Fourier} \textbf{66}(6) (2016), 2253--2298. doi:10.5802/aif.3063.
+
+\bibitem{DM15}
+G.~Duval and A.~J.~Maciejewski, Integrability of potentials of degree $k\neq\pm2$. Second order variational
+equations between Kolchin solvability and Abelianity, \emph{Discrete and Continuous Dynamical Systems} \textbf{35}(5)
+(2015), 1969--2009. doi:10.3934/dcds.2015.35.1969.
+
+\bibitem{Kimura69}
+T.~Kimura, On Riemann's equations which are solvable by quadratures, \emph{Funkcialaj Ekvacioj} \textbf{12}(3) (1969; issue dated 1970), 269--281. doi:10.24546/0100498821.
+
+\bibitem{MP05}
+A.~J.~Maciejewski and M.~Przybylska, Darboux points and integrability of Hamiltonian systems with homogeneous
+polynomial potential, \emph{Journal of Mathematical Physics} \textbf{46}(6) (2005), 062901. doi:10.1063/1.1917311.
+
+\bibitem{MRS07}
+J.~J.~Morales-Ruiz, J.-P.~Ramis and C.~Sim\'o, Integrability of Hamiltonian systems and differential Galois groups of
+higher variational equations, \emph{Annales Scientifiques de l'\'Ecole Normale Sup\'erieure} \textbf{40}(6) (2007),
+845--884. doi:10.1016/j.ansens.2007.09.002.
+
+\bibitem{PSM23}
+M.~Przybylska, W.~Szumi\'nski and A.~J.~Maciejewski, Destructive relativity, \emph{Chaos} \textbf{33}(6) (2023),
+063156. doi:10.1063/5.0140633; arXiv:2307.10070.
+
+\bibitem{SPM24}
+W.~Szumi\'nski, M.~Przybylska and A.~J.~Maciejewski, Chaos and integrability of relativistic homogeneous potentials
+in curved space, \emph{Nonlinear Dynamics} \textbf{112}(6) (2024), 4879--4898. doi:10.1007/s11071-023-09224-w.
+
+\bibitem{SP25}
+W.~Szumi\'nski and M.~Przybylska, Integrability and chaos of relativistic Hamiltonian systems in 2D Riemannian
+manifolds, \emph{Nonlinear Dynamics} \textbf{113}(21) (2025), 30057--30085. doi:10.1007/s11071-025-11554-w.
+
+\end{thebibliography}
+
+\end{document}

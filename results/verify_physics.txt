@@ -1,0 +1,8 @@
+k=3: [0, 1, 5, 8, 16, 21, 33, 40, 56, 65, 85, 96]
+k=4: [0, 1, 7, 10, 22, 27, 45, 52, 76, 85, 115, 126]
+k=5: [0, 1, 9, 12, 28, 33, 57, 64, 96, 105, 145, 156]
+PASS: NVE derivation, pullback, exponent differences, discriminants,
+      eigenvalue family, projective multiplier and 2025 specialization;
+      general jet-composition coefficient, reduced-Hamiltonian terms,
+      polynomial-primitive degree and polar differential identities.
+      Checks remain active under -O.

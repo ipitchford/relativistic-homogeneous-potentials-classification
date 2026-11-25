@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: MIT
+name: Replay
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  verify:
+    name: Manifest; both scripts under python -O; exact comparison with results/; negative control (blocking)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check MANIFEST.sha256
+        run: sha256sum -c MANIFEST.sha256
+      - name: Install pinned dependencies
+        run: python3 -m pip install -r requirements.txt
+      - name: Run both scripts in a copy of the package (cwd = package root)
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          python3 -c 'import sys, sympy; print(sys.version, sympy.__version__)'
+          for d in run neg; do mkdir -p "$RUNNER_TEMP/$d/results"; cp -R code "$RUNNER_TEMP/$d/"; done
+          cd "$RUNNER_TEMP/run"
+          python3 -I -B -O code/verify_physics.py > results/verify_physics.txt
+          python3 -I -B -O code/check_complex.py > results/check_complex.txt
+      - name: Compare with the recorded results (byte-exact; outputs contain only exact text and rationals)
+        run: |
+          cmp results/verify_physics.txt "$RUNNER_TEMP/run/results/verify_physics.txt"
+          cmp results/check_complex.txt "$RUNNER_TEMP/run/results/check_complex.txt"
+      - name: Negative control under -O (sign of the expected residue sum flipped)
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          cd "$RUNNER_TEMP/neg"
+          sed -i 's/expected = -S.Rational(kk \* d/expected = S.Rational(kk * d/' code/check_complex.py
+          grep -q 'expected = S.Rational(kk \* d' code/check_complex.py
+          if python3 -I -B -O code/check_complex.py > neg-output.txt 2>&1; then echo "negative control not detected"; exit 1; fi
+          grep -q 'RuntimeError: residue sum' neg-output.txt
+          echo "negative control detected"
+      - name: Working tree unchanged
+        run: test -z "$(git status --porcelain)"

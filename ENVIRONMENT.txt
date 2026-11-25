@@ -1,0 +1,16 @@
+Release replay environment (25 November 2026, macOS arm64 host)
+Interpreter (printed inside the run, not assumed): `uv run --no-project --python 3.12 --with sympy==1.14.0 python3`
+built an ephemeral environment on CPython 3.12.11 with SymPy 1.14.0 (see REPLAY_RECEIPT.md).
+Packages: requirements.txt pins sympy==1.14.0 (mpmath comes with it). No other third-party package is used.
+Working directory: the package root. Flags: python3 -I -B, and again with -O; PYTHONDONTWRITEBYTECODE=1.
+Run time: a few seconds per script.
+GitHub CI: ubuntu-latest, actions/setup-python 3.12, pip install -r requirements.txt; both scripts run under
+python3 -I -B -O on every push (blocking), followed by the negative control.
+Comparison policy (declared before tagging; the same in CI, README.md and REPLAY_RECEIPT.md):
+- Each fresh output must equal the recorded results/ file byte for byte, on every platform.
+- verify_physics.py is exact SymPy. check_complex.py is exact SymPy for the lemma identities; for its ten example
+  potentials it computes roots numerically at 60 digits and compares inside the script with a declared tolerance of
+  1e-40 (fixed random seed 20261124). The printed lines contain only exact text and exact rationals, so no output
+  tolerance is needed.
+- Neither output prints an interpreter or platform version, so no field is excluded.
+On the release platform every output was byte-identical to the recorded file, with and without -O.

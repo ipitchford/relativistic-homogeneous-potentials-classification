@@ -1,0 +1,93 @@
+{
+ "title": "Relativity leaves only the symmetric potentials integrable: a classification of homogeneous polynomial potentials for the additive relativistic Hamiltonian",
+ "upload_type": "publication",
+ "publication_type": "preprint",
+ "description": "<p><strong>Unrefereed research candidate.</strong> A particle moving in a plane under a force field with potential V is called integrable when, besides the energy, it has a second conserved quantity; its motion is then regular and cannot be chaotic. For homogeneous polynomial potentials many integrable cases are known in classical mechanics. This paper asks which survive when the kinetic energy is replaced by its special-relativistic form, giving the Hamiltonian H = &radic;(1 + p<sub>1</sub><sup>2</sup> + p<sub>2</sub><sup>2</sup>) + V(q<sub>1</sub>, q<sub>2</sub>).</p><p><strong>Context.</strong> Przybylska, Szumi&nacute;ski and Maciejewski (Chaos, 2023) found that relativity destroys almost all classical integrable cases and suggested that only potentials depending on one coordinate, or radial ones, survive. They proved a strong necessary condition for rational first integrals, concluded the classification for degrees three, four and five by comparison with the classical lists, and conjectured that generic potentials are non-integrable. Maciejewski and Przybylska (2005) gave the Darboux-point relation and multiplicity counts used for complex potentials. The method follows the strategy of Combot's classical classification in degree &minus;1 (an extremal direction plus rigidity at small eigenvalues).</p><p><strong>Main results.</strong> (A) For every degree k &ge; 3, a nonzero real homogeneous polynomial potential admits a second first integral, meromorphic on the natural complex phase space and independent of H, if and only if, after a rotation, V = c q<sub>1</sub><sup>k</sup> or (k even) V = c (q<sub>1</sub><sup>2</sup> + q<sub>2</sub><sup>2</sup>)<sup>k/2</sup>: only potentials invariant under a translation or under all rotations survive. The result is new for k &ge; 6; for k = 3, 4, 5 the 2023 paper reached the real conclusion by another route, and the proof here is uniform in k. A local version needs integrability only near two explicit complex phase curves. (B) A complex-coefficient potential that has a nonisotropic linear factor, and whose isotropic factors q<sub>1</sub> &plusmn; i q<sub>2</sub> do not have multiplicity exactly k/2, is integrable if and only if it is a power of a single nonisotropic linear form. (C) In particular, for potentials with no isotropic factor, every generic homogeneous polynomial potential is non-integrable, which proves the stated consequence of the 2023 conjecture; its arithmetic part remains open.</p><p><strong>Method.</strong> At the real direction where |V| is largest on the unit circle there are straight-line solutions, and the small motions across them are governed by one eigenvalue &lambda;, which hypergeometric reductions and Kimura's theorem force to be 0 or 1. At &lambda; = 0, the first transverse term of V would make a finite jet of the normal holonomy non-commutative, because two periods on the hyperelliptic curve &psi;<sup>2</sup> = a<sup>2</sup>x<sup>2k</sup> &minus; 1 are independent; the Morales&ndash;Ramis&ndash;Sim&oacute; theorem forbids this. &lambda; = 1 is the same argument in polar coordinates.</p><p><strong>Limits.</strong> Integrability means a first integral meromorphic on the complex phase space; smooth integrals on a restricted real region or a single energy level are not excluded, and chaos is not proved. Degrees one and two, non-homogeneous potentials and three or more degrees of freedom are outside the statements. Isotropic monomials and the exact-half multiplicity case remain open.</p><p><strong>Contents.</strong> The paper (LaTeX source and PDF); two SymPy scripts with their recorded outputs (verify_physics.py: the variational equations, exponent differences, spectral lists, jet coefficients and polar identities; check_complex.py: the residue lemma and identity and ten example potentials with residues compared with Hessian eigenvalues at 60 digits); the bibliography, a machine-readable index, a research-gate record, a review summary, a replay receipt and SHA-256 sums. Every check raises an exception on failure, also under python -O.</p><p><strong>Assurance.</strong> Written proofs with symbolic checks. Internal AI-assisted review only: a combined five-role Claude review panel, two proof audits, SymPy checks with negative controls and a clean replay, one revision round, then a re-review. No Astra/Codex review took place. This is not peer review, independent reproduction or formal verification. Creator: Anonymous. Text CC0-1.0; code MIT.</p>",
+ "creators": [
+  {
+   "name": "Anonymous"
+  }
+ ],
+ "access_right": "open",
+ "license": "cc-zero",
+ "version": "0.1.0-candidate",
+ "publication_date": "2026-11-25",
+ "keywords": [
+  "integrability",
+  "relativistic Hamiltonian",
+  "homogeneous potentials",
+  "Morales-Ramis theory",
+  "differential Galois theory",
+  "higher variational equations",
+  "Darboux points",
+  "Hamiltonian dynamics"
+ ],
+ "notes": "Code (*.py and the CI workflow) is MIT; prose, manuscript, recorded outputs and records are CC0-1.0.",
+ "related_identifiers": [
+  {
+   "identifier": "https://github.com/ipitchford/relativistic-homogeneous-potentials-classification/tree/v0.1.0-candidate",
+   "relation": "isSupplementTo",
+   "scheme": "url"
+  },
+  {
+   "identifier": "https://evidencepress.org/releases/relativistic-homogeneous-potentials-classification/",
+   "relation": "isDocumentedBy",
+   "scheme": "url"
+  },
+  {
+   "identifier": "10.1063/5.0140633",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1007/s11071-025-11554-w",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1007/s11071-023-09224-w",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.5802/aif.3063",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1063/1.1917311",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1016/j.ansens.2007.09.002",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.3934/dcds.2015.35.1969",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.24546/0100498821",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "arXiv:1301.6621",
+   "relation": "references",
+   "scheme": "arxiv"
+  },
+  {
+   "identifier": "arXiv:2307.10070",
+   "relation": "references",
+   "scheme": "arxiv"
+  },
+  {
+   "identifier": "arXiv:1303.5829",
+   "relation": "references",
+   "scheme": "arxiv"
+  }
+ ]
+}

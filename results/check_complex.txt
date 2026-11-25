@@ -1,0 +1,14 @@
+PASS Lemma 7.1(b): g'(t_i) = (lambda_i - 1) h(t_i); radial eigenvalue k-1
+PASS Lemma 7.1(d): residue a/(k-2a) at t = i (symbolic a, k, cofactor)
+PASS identity (7.4): -1 - a/(k-2a) - b/(k-2b) = -k d/((k-2a)(k-2b))
+PASS k=3, a=0, b=0, d=3, r=3, sum=-1
+PASS k=4, a=0, b=0, d=4, r=3, sum=-1
+PASS k=4, a=1, b=0, d=3, r=3, sum=-3/2
+PASS k=7, a=4, b=1, d=2, r=2, sum=14/5
+PASS k=8, a=2, b=3, d=3, r=3, sum=-3
+PASS k=5, a=1, b=1, d=3, r=3, sum=-5/3
+PASS k=5, a=3, b=0, d=2, r=2, sum=2
+PASS k=4, a=1, b=0, d=3, r=3, sum=-3/2
+PASS k=4, a=0, b=0, d=4, r=3, sum=-1
+PASS k=4, a=1, b=0, d=3, r=3, sum=-3/2
+PASS: complex-coefficient residue lemma and identity checks. Checks remain active under -O.

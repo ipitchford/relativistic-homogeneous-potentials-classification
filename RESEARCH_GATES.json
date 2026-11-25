@@ -1,0 +1,226 @@
+{
+ "schemaVersion": "1.0",
+ "provenance": "Compiled 25 November 2026 for 0.1.0-candidate from the dated searches of the internal AI-assisted review (24 November 2026), the source retrieval and reading record, the corpus overlap check, refs.bib, REVIEW_SUMMARY.md and the paper's own positioning (Section 1). It records scrutiny performed, not historical priority.",
+ "contributionMap": [
+  {
+   "claim": "Theorem A: real homogeneous polynomial V of degree k >= 3 is meromorphically (equivalently rationally) integrable for H = sqrt(1+|p|^2) + V iff, after a rotation, V = c q1^k or (k even) V = c (q1^2+q2^2)^(k/2)",
+   "unit": "statement",
+   "paperLocation": "Theorem A, Section 6; Theorem 6.1 (local version)",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar citations of the 2023 Chaos paper (doi:10.1063/5.0140633) and general web searches, by the internal review panel; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "citing works of 'Destructive relativity'; relativistic homogeneous potential integrability classification; Morales-Ramis relativistic Hamiltonian; Przybylska Szuminski Maciejewski; Darboux points relativistic"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv, Numdam, author manuscript, journal HTML, Kobe University Repository scan, owner-supplied copy)",
+     "query": "PSM23 abstract, Theorem 3, Propositions 1-2, Sections V-VI, Appendix Theorem 4; SP25 Section 3.1 eqs. (31)-(34), Theorem 3; Combot16 Theorem A, Lemma 3.1, Theorem B, Lemma 4.5; Combot13 Section 4.3 Lemmas 6-7, Theorem 1; MRS07 Section 2 Corollary 2; MP05 Corollary 2.1, Theorems 1.2, 2.3, Propositions 2.7-2.9, Remark 2.2; Kimura pp. 274-277; DM15"
+    }
+   ],
+   "closestPriorWork": "PSM23 Section V (degrees 3-5 via Theorem 3 and classical lists; Cartesian and parabolic separable families for all k)",
+   "verdict": "partially-known-cited",
+   "verdictNote": "k = 3, 4, 5 reached in PSM23 by another route and credited; no classification for k >= 6 was found"
+  },
+  {
+   "claim": "Theorem 4.1: transverse eigenvalue 0 at a nonisotropic proper Darboux direction forces V = a x^k (zero-eigenvalue rigidity)",
+   "unit": "statement",
+   "paperLocation": "Theorem 4.1, Lemma 4.2, Section 4",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar citations of the 2023 Chaos paper (doi:10.1063/5.0140633) and general web searches, by the internal review panel; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "citing works of 'Destructive relativity'; relativistic homogeneous potential integrability classification; Morales-Ramis relativistic Hamiltonian; Przybylska Szuminski Maciejewski; Darboux points relativistic"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv, Numdam, author manuscript, journal HTML, Kobe University Repository scan, owner-supplied copy)",
+     "query": "PSM23 abstract, Theorem 3, Propositions 1-2, Sections V-VI, Appendix Theorem 4; SP25 Section 3.1 eqs. (31)-(34), Theorem 3; Combot16 Theorem A, Lemma 3.1, Theorem B, Lemma 4.5; Combot13 Section 4.3 Lemmas 6-7, Theorem 1; MRS07 Section 2 Corollary 2; MP05 Corollary 2.1, Theorems 1.2, 2.3, Propositions 2.7-2.9, Remark 2.2; Kimura pp. 274-277; DM15"
+    }
+   ],
+   "closestPriorWork": "Combot13 (period determinant from commuting monodromy, classical); Combot16 rigidity at small eigenvalues (degree -1)",
+   "verdict": "new-in-bounded-search",
+   "verdictNote": "no relativistic zero-eigenvalue rigidity was found; the classical analogue fails (x^k + y^k is classically integrable)"
+  },
+  {
+   "claim": "Theorem B and Corollary C: complex V with a nonisotropic factor and isotropic multiplicities != k/2 is integrable iff a power of one nonisotropic linear form; generic potentials non-integrable",
+   "unit": "statement",
+   "paperLocation": "Theorem B, Corollary C, Lemma 7.1, Section 7",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar citations of the 2023 Chaos paper (doi:10.1063/5.0140633) and general web searches, by the internal review panel; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "citing works of 'Destructive relativity'; relativistic homogeneous potential integrability classification; Morales-Ramis relativistic Hamiltonian; Przybylska Szuminski Maciejewski; Darboux points relativistic"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv, Numdam, author manuscript, journal HTML, Kobe University Repository scan, owner-supplied copy)",
+     "query": "PSM23 abstract, Theorem 3, Propositions 1-2, Sections V-VI, Appendix Theorem 4; SP25 Section 3.1 eqs. (31)-(34), Theorem 3; Combot16 Theorem A, Lemma 3.1, Theorem B, Lemma 4.5; Combot13 Section 4.3 Lemmas 6-7, Theorem 1; MRS07 Section 2 Corollary 2; MP05 Corollary 2.1, Theorems 1.2, 2.3, Propositions 2.7-2.9, Remark 2.2; Kimura pp. 274-277; DM15"
+    }
+   ],
+   "closestPriorWork": "MP05 Theorem 2.3 and Corollary 2.1 (Darboux-point relation and multiplicities); PSM23 Section VI conjecture",
+   "verdict": "partially-known-cited",
+   "verdictNote": "the residue relation and multiplicity counts are MP05's and credited; the classification and the proof of the conjecture's stated consequence were not found"
+  },
+  {
+   "claim": "Method: extremal real direction of |V| on the unit circle forcing lambda <= 1, spectral restriction from hypergeometric reductions and Kimura, and rigidity through independent periods on psi^2 = a^2 x^(2k) - 1 making a finite jet of the normal holonomy non-commutative (MRS07)",
+   "unit": "method",
+   "paperLocation": "Sections 1 (idea of the proof), 3-6; Lemma 2.4",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar citations of the 2023 Chaos paper (doi:10.1063/5.0140633) and general web searches, by the internal review panel; Evidence Press corpus (site papers/ and the batch corpus list)",
+     "query": "citing works of 'Destructive relativity'; relativistic homogeneous potential integrability classification; Morales-Ramis relativistic Hamiltonian; Przybylska Szuminski Maciejewski; Darboux points relativistic"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the cited works, obtained and read (arXiv, Numdam, author manuscript, journal HTML, Kobe University Repository scan, owner-supplied copy)",
+     "query": "PSM23 abstract, Theorem 3, Propositions 1-2, Sections V-VI, Appendix Theorem 4; SP25 Section 3.1 eqs. (31)-(34), Theorem 3; Combot16 Theorem A, Lemma 3.1, Theorem B, Lemma 4.5; Combot13 Section 4.3 Lemmas 6-7, Theorem 1; MRS07 Section 2 Corollary 2; MP05 Corollary 2.1, Theorems 1.2, 2.3, Propositions 2.7-2.9, Remark 2.2; Kimura pp. 274-277; DM15"
+    }
+   ],
+   "closestPriorWork": "Combot16 (extremal direction, Lemma 3.1; rigidity via higher variational equations, Theorem B, Lemma 4.5); Combot13 (period determinant); DM15; MRS07",
+   "verdict": "partially-known-cited",
+   "verdictNote": "the architecture and the period-determinant mechanism are credited and not claimed as new; their transfer to the relativistic Hamiltonian in positive degree was not found"
+  }
+ ],
+ "sourcesReadInFull": [
+  {
+   "citation": "Przybylska, M., Szumiński, W. and Maciejewski, A. J. (2023), Destructive relativity, Chaos 33(6), 063156 (arXiv:2307.10070)",
+   "usedFor": "the question, Theorem 3, Sections V-VI, the conjecture, Appendix Theorem 4",
+   "readWhat": "whole paper (arXiv version)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1063/5.0140633"
+  },
+  {
+   "citation": "Szumiński, W. and Przybylska, M. (2025), Integrability and chaos of relativistic Hamiltonian systems in 2D Riemannian manifolds, Nonlinear Dynamics 113(21), 30057-30085",
+   "usedFor": "special-energy hypergeometric reductions (flat specialisation)",
+   "readWhat": "journal HTML, Section 3.1 and Theorem 3",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1007/s11071-025-11554-w"
+  },
+  {
+   "citation": "Combot, T. (2016), Integrable planar homogeneous potentials of degree -1 with small eigenvalues, Annales de l'Institut Fourier 66(6), 2253-2298",
+   "usedFor": "closest classical precedent; extremal direction and rigidity",
+   "readWhat": "whole paper (Numdam)",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.5802/aif.3063"
+  },
+  {
+   "citation": "Combot, T. (2013), Meromorphically integrable homogeneous potentials with multiple Darboux points, arXiv:1301.6621",
+   "usedFor": "period determinant; eigenvalue-one alternative (Theorem 1)",
+   "readWhat": "whole preprint",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://arxiv.org/abs/1301.6621"
+  },
+  {
+   "citation": "Morales-Ruiz, J. J., Ramis, J.-P. and Simó, C. (2007), Integrability of Hamiltonian systems and differential Galois groups of higher variational equations, Ann. Sci. ENS 40(6), 845-884",
+   "usedFor": "Corollary 2(ii) on holonomy jets",
+   "readWhat": "author manuscript, Section 2",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1016/j.ansens.2007.09.002"
+  },
+  {
+   "citation": "Maciejewski, A. J. and Przybylska, M. (2005), Darboux points and integrability of Hamiltonian systems with homogeneous polynomial potential, J. Math. Phys. 46(6), 062901",
+   "usedFor": "Darboux-point relation, isotropic version (2.42), multiplicity counts, Remark 2.2",
+   "readWhat": "rendered owner-supplied copy, the cited results",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1063/1.1917311"
+  },
+  {
+   "citation": "Kimura, T. (1969; issue dated 1970), On Riemann's equations which are solvable by quadratures, Funkcialaj Ekvacioj 12(3), 269-281",
+   "usedFor": "classification of solvable Riemann equations (Appendix A)",
+   "readWhat": "repository scan, pp. 274-277",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://hdl.handle.net/20.500.14094/0100498821"
+  },
+  {
+   "citation": "Duval, G. and Maciejewski, A. J. (2015), Integrability of potentials of degree k != +-2, DCDS 35(5), 1969-2009 (arXiv:1303.5829)",
+   "usedFor": "precedent for higher variational equations at special eigenvalues",
+   "readWhat": "arXiv preprint",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.3934/dcds.2015.35.1969"
+  }
+ ],
+ "limitationTriage": [
+  {
+   "limitation": "Integrability is complex-meromorphic on M; smooth or real-region integrals and chaos are not addressed",
+   "closingQuestion": "Can non-integrability be strengthened to smooth integrals on a real energy level?",
+   "triedOrSearched": "scope stated in Sections 2.1 and 8",
+   "estimatedCost": "research-level",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "Section 8, Scope",
+   "whyNotClosedNow": "a different theory is needed"
+  },
+  {
+   "limitation": "Isotropic monomials and the exact-half multiplicity case undecided",
+   "closingQuestion": "Are l+^a l-^b (a != b) and the k/2 case integrable?",
+   "triedOrSearched": "attempted in the revision round; no nonisotropic Darboux direction for monomials; residue not determined in the k/2 case",
+   "estimatedCost": "research-level",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "end of Section 7; Section 8 item (1)",
+   "whyNotClosedNow": "needs a different particular solution"
+  },
+  {
+   "limitation": "Degrees one and two, non-homogeneous potentials, n >= 3 degrees of freedom, curved-space versions",
+   "closingQuestion": "Does the rigidity transfer?",
+   "triedOrSearched": "judged beyond one revision round",
+   "estimatedCost": "research-level",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "Section 8, Scope and Open problems",
+   "whyNotClosedNow": "out of scope"
+  },
+  {
+   "limitation": "Check scripts must stay active under python -O",
+   "closingQuestion": "Do the checks fail on a corrupted claim?",
+   "triedOrSearched": "explicit RuntimeError checks; sign flip of the expected residue sum exits 1 under -O in release replay and CI",
+   "estimatedCost": "minutes",
+   "cheap": true,
+   "decision": "CLOSED",
+   "reasonOpen": "",
+   "whyNotClosedNow": ""
+  },
+  {
+   "limitation": "Kimura's table checked first only through the 2023 reproduction",
+   "closingQuestion": "Does the original table say what Appendix A uses?",
+   "triedOrSearched": "original scan obtained and checked pp. 274-277 by the proof audit",
+   "estimatedCost": "hours",
+   "cheap": true,
+   "decision": "CLOSED",
+   "reasonOpen": "",
+   "whyNotClosedNow": ""
+  },
+  {
+   "limitation": "Novelty rests on searches of limited scope",
+   "closingQuestion": "Would MathSciNet, zbMATH or arXiv listings change attribution?",
+   "triedOrSearched": "Semantic Scholar citations of the 2023 paper, web searches, cited sources read, Evidence Press corpus checked",
+   "estimatedCost": "subscription indexes",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "subscription indexes were outside the searched corpus",
+   "whyNotClosedNow": "recorded here; the paper positions its results against the sources read"
+  }
+ ],
+ "extensionScout": {
+  "by": "five internal reviewer roles, the proof auditors and the lead",
+  "date": "2026-11-24",
+  "proposals": [
+   "complex coefficients",
+   "generic-potential consequence of the 2023 conjecture",
+   "local version near two phase curves",
+   "symbolic checks of Section 7",
+   "isotropic monomials and the exact-half case",
+   "curved space and n >= 3"
+  ],
+  "actions": [
+   "done: Theorem B",
+   "done: Corollary C",
+   "done: Theorem 6.1",
+   "done: code/check_complex.py",
+   "attempted; stated as open in Sections 7-8",
+   "listed as open in Section 8"
+  ]
+ }
+}
